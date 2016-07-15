@@ -1,0 +1,9 @@
+<h1>Estas son las preguntas que has realizado :)</h1>
+
+<% @questions_user.each do |q| %>
+  <div><%= q.question%></div>
+  <a href='/pregunta/<%="#{q.id}"%>'>Ir a pregunta</a>
+  <br><br>
+<% end %>
+
+<a class="link" href='/profile/<%=session[:user_id]%>'>Perfil de usuario</a>

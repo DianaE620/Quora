@@ -1,0 +1,15 @@
+<h1>Estas son las respuestas que has dado :)</h1>
+
+<% @question_answers.each do |a|%>
+  Pregunta:
+  <div><%=a[0]%></div>
+  <br>
+  Tu Respuesta:
+  <div><%=a[1]%></div>
+  <br>
+  <a href='/pregunta/<%="#{a[2]}"%>'>Ir a pregunta</a>
+  <div>--------------------------------------------------------</div>
+<% end %>
+<br>
+<a class="link" href='/profile/<%=session[:user_id]%>'>Perfil de usuario</a>
+

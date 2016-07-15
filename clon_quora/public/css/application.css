@@ -1,0 +1,78 @@
+.container {
+  margin: 20px auto;
+  width: 600px;
+  padding: 0px 20px 20px 20px;
+  border: 1px dotted black;
+}
+th {
+  text-align: left;
+}
+
+.link{
+  display: block;
+  text-align: right;
+  font-size: 1.2em;
+  text-decoration: none;
+  color:  #47b8e0;
+  font-weight: bold;
+}
+
+.boton{
+  background-color: #f1404b;
+  width: 100px;
+  text-align: center;
+  color: white;
+  padding: 7px;
+  border-radius: 7px;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+.error{
+  text-align: center;
+  color: red;
+}
+
+input{
+  width: 200px;
+}
+
+.contain_form{
+  border: 5px solid #00dffc;
+  text-align: center;
+  padding: 25px;
+  width: 250px;
+  border-radius: 7px;
+  margin: 0 auto;
+} 
+
+h1{
+  color: #fe4365;
+  font-weight: bold;
+
+}
+
+textarea{
+  width: 540px;
+
+}
+
+p{
+  color: #fe4365;
+}
+
+i{
+  cursor: pointer;
+}
+
+.tabla{
+  width: 100%;
+}
+
+
+
+
+
+
+
+

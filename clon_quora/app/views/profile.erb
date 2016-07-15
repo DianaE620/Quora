@@ -1,0 +1,11 @@
+<h1>Bienvenido a tu perfil</h1>
+<div>Usuario: <%= @user.name %> </div>
+
+<br>
+<a href="/">Ver preguntas generales</a>
+<br><br>
+<a href='/questions/<%="#{@user.id}"%>'>Ve tus preguntas realizadas</a>
+<br><br>
+<a href='/answers/<%="#{@user.id}"%>'>Ve tus respuestas</a>
+<br><br>
+<a href="/outsesion">Cerrar sesion</a>

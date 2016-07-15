@@ -1,0 +1,58 @@
+  <h1 class="titulo">Bienvenido a Quora</h1>
+
+<br>
+
+  <% if logged_in? %>
+
+      <div class="contain_form" style="width:90%;text-align:left;">
+
+      <p>Nueva pregunta:</p>
+
+      <form id="soyform" method="post" action="/question/new">
+      <textarea rows="4" name="question"></textarea>
+  
+      <br><br>
+      <div>Usuario: <%= session[:name] %></div>
+
+      <br>
+      <div class="boton" id="enviar">Preguntar</div>
+
+      </form>
+
+      <% if @error %>
+        <br>
+        <div class="error">La pregunta no puede estar vacia</div>
+      <% end %>
+
+    </div>
+  <% end %>
+  <br>
+
+  <div>Ultimas preguntas:</div>
+  <% @array_questions.each do |q| %>
+    <br>
+    Pregunta:
+    <div><%= q[0] %></div>
+    <br>
+    pregunta realizada por: <span><%= q[1] %></span>
+    <br>
+    <a href='/pregunta/<%="#{q[2]}"%>'> Ver respuestas</a>
+    <br>
+  <% end %>
+  
+  <br>
+  <% if logged_in? == false %>
+    <a class="link" href="/login">Ir a login</a>
+    <br>
+  <% end %>
+  <a class="link" href="/newuser">Nuevo usuario</a>
+  <br>
+
+  <% if logged_in? %>
+    <a class="link" href='/profile/<%=session[:user_id]%>'>Perfil de usuario</a>
+    <br>
+    <a class="link" href='/all/users'>Ver todos los usuarios</a>
+  <% end %>
+
+
+  

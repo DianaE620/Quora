@@ -1,0 +1,30 @@
+<h1 class="titulo">Aquí podras registrarte como nuevo usuario</h1>
+<div>Ingresa tus datos</div>
+
+<br>
+<div class="contain_form">
+
+  <form method="post" action="/newuser" id="soyform">
+    Nombre:<br>
+    <input type="text" name="name">
+    <br><br>
+
+    Email:<br>
+    <input type="text" name="email">
+    <br><br>
+    Contraseña:<br>
+    <input type="password" name="pass">
+
+    <br><br>
+    <div class="boton" id="enviar">Registrarme</div>
+
+  </form>
+
+<br><br>
+  <% if @error %>
+     <div class="error"><%=@user.errors.full_messages%></div>
+  <% end %>
+ 
+</div>
+<br>
+<a class="link" href="/">Página principal</a>

@@ -1,0 +1,86 @@
+<h1><%=@pregunta.question %></h1>
+
+<div style="display:none" id="questionid"><%=@pregunta.id %></div>
+
+<table class="tabla">
+  <tr>
+    <td>
+      <i class="fa fa-thumbs-up" aria-hidden="true" id="qpvote"> Like </i>
+    </td>
+    <td>
+      <i class="fa fa-thumbs-down" aria-hidden="true" id="qnvote"> Dislike </i>
+    </td>
+    <td>
+      <i class="fa fa-users" aria-hidden="true"> Users like 
+        <span id= "userp"><%=@pregunta.total_votes%></span>
+      </i>
+    </td>
+  </tr>
+</table>
+ 
+ <div>----------------------------------------------</div>
+ <br>
+
+<div>Respuestas:</div>
+<br>
+
+  <% @array_answers.each do |a|%>
+    <div><%= a[0]%></div>
+    <br>
+    <div>Respondido por: <%= a[1]%></div> 
+    <br>
+
+    <div>
+      <table class="tabla">
+          <tr>
+            <td>
+              <i class="fa fa-thumbs-up clickp" aria-hidden="true" respuestaid="<%= a[2]%>"> Like </i>
+            </td>
+            <td>
+              <i class="fa fa-thumbs-down clickn" aria-hidden="true" respuestaid="<%= a[2]%>"> Dislike </i>
+            </td>
+            <td>
+              <i class="fa fa-users" aria-hidden="true"> Users like 
+               <span id="valuev<%= a[2]%>"><%=a[3]%></span>
+              </i>
+            </td>
+          </tr>
+      </table>
+    </div>
+    <br>
+  <% end %>
+
+<br><br>
+
+  <% if logged_in? %>
+
+  <div class="contain_form" style="width:90%;text-align:left;">
+
+    <p>Nueva respuesta:</p>
+
+    <form id="soyform" method="post" action="/answer/new">
+      <textarea rows="6" name="answer"></textarea>
+      <input type="hidden" value="<%= @pregunta.id%>" name="question_id">
+
+      <br><br>
+      <div>Usuario: <%= session[:name] %></div>
+
+      <br>
+      <div class="boton" id="enviar">Responder</div>
+
+    </form>
+  </div>
+    <% if @error %>
+      <div class="error">La respuesta no puede estar vacia</div>
+    <% end %>
+
+  <% else %>
+
+  <div class="error">Recuerda que tienes que ingresar a tu cuenta para responder preguntas</div>
+  <br>
+  <a class="link" href="/login">Ir a login</a>
+
+  <% end %>
+
+<br>
+  <a href="/">Regresar</a>

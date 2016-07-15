@@ -1,0 +1,12 @@
+<h1>Usuarios registrados:</h1>
+
+ Nombre del usuario:
+ <br><br>
+<% i = 1 %>
+<% @users.each do |u| %>
+  <div><%=i %>. <%=u.name %></div>
+  <% i += 1 %>
+  <br>
+<% end %>
+
+<a href="/">Regresar a página principal</a>
